@@ -1,6 +1,21 @@
 //import { MouseEvent } from "react";
 import { useState } from "react";
 import styles from "./ListGroup.module.css";
+import styled from "styled-components";
+
+const List = styled.ul`
+  list-style: none;
+  padding: 0;
+`;
+
+interface ListItemProps {
+  active: boolean;
+}
+
+const ListItem = styled.li<ListItemProps>`
+  padding: 5px 0;
+  background: ${(props) => (props.active ? "pink" : "none")};
+`;
 
 interface ListGroupProps {
   items: string[];
@@ -31,7 +46,8 @@ function ListGroup({ items, headings, onSelectItem }: ListGroupProps) {
       <h1>{headings}</h1>
       {/* {items.length === 0 ? <p>No items found</p> : null} */}
       {message}
-      <ul className={styles["list-group"]}>
+      {
+        /* <ul className='list-group'>
         {items.map((item, index) => (
           <li
             //className="list-group-item"
@@ -49,7 +65,28 @@ function ListGroup({ items, headings, onSelectItem }: ListGroupProps) {
             {item}
           </li>
         ))}
-      </ul>
+      </ul> */
+        <List>
+          {items.map((item, index) => (
+            <ListItem
+              active={index === selectedIndex}
+              //className="list-group-item"
+              className={
+                selectedIndex == index
+                  ? "list-group-item active"
+                  : "list-group-item"
+              }
+              key={item}
+              onClick={() => {
+                setSelectedIndex(index);
+                onSelectItem(item);
+              }}
+            >
+              {item}
+            </ListItem>
+          ))}
+        </List>
+      }
     </>
   );
 }
