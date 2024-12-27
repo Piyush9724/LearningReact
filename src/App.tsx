@@ -4,6 +4,7 @@ import Button from "./components/Button";
 import { useState } from "react";
 import { NavBar } from "./components/NavBar";
 import { Cart } from "./components/Cart";
+import { ExpandableText } from "./components/ExpandableText";
 
 function App() {
   //initialize props to be sent to the component
@@ -25,6 +26,20 @@ function App() {
           items={items}
           headings="Cities"
           onSelectItem={handleSelectedItem}
+        />
+      </div>
+      <div>
+        <ExpandableText characterCount={100}
+          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Sed sit amet nulla auctor, vestibulum magna sed, convallis ex. 
+        Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+        Integer posuere erat a ante venenatis dapibus posuere velit aliquet. C
+        Xum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+        Donec id elit non mi porta gravida at eget metus. 
+        Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+        Cras justo odio, dapibus ac facilisis in, egestas eget quam. 
+        Donec id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient montes, 
+        nascetur ridiculus mus. Integer posuere erat a ante venenatis dapibus posuere velit aliquet."
         />
       </div>
     </>
