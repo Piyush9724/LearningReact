@@ -6,18 +6,22 @@ interface ExpandableTextProps {
 }
 
 const ExpandableText = ({ text, characterCount }: ExpandableTextProps) => {
-  const [expand, setExpanded] = useState(true);
+  const [isExpanded, setExpanded] = useState(true);
 
-  const handleClick = () => {
+  const toggleExpansion = () => {
     setExpanded((prev) => !prev);
   };
+
+  const truncatedText = isExpanded ? text.substring(0, characterCount) : text;
+
+  const buttonLabel = isExpanded ? "Read more..." : "Read less..";
 
   return (
     <>
       <p>
-        {expand ? text.substring(0, characterCount):text}{" "}
-        <button onClick={handleClick}>
-          {expand ? <label>Read more..</label> : <label>Read less..</label>}
+        {truncatedText} {" "}
+        <button onClick={toggleExpansion}>
+          <label>{buttonLabel}</label>
         </button>{" "}
       </p>
     </>
