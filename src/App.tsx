@@ -2,15 +2,32 @@ import ListGroup from "./components/ListGroup";
 import Alert from "./components/Alert";
 import Button from "./components/Button";
 import { useState } from "react";
+import { NavBar } from "./components/NavBar";
+import { Cart } from "./components/Cart";
 
 function App() {
   //initialize props to be sent to the component
   let items = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
   const handleSelectedItem = (item: string) => console.log(item);
+
+  const [cartItems, setCartItems] = useState([
+    "Product1",
+    "Product2",
+    "Product3",
+  ]);
+
   return (
-    <div>
-      <ListGroup items={items} headings="Cities" onSelectItem={handleSelectedItem} />
-    </div>
+    <>
+      <NavBar cartItemsCounts={cartItems.length} />
+      <Cart cartItems={cartItems} onClear={() => setCartItems([])} />
+      <div>
+        <ListGroup
+          items={items}
+          headings="Cities"
+          onSelectItem={handleSelectedItem}
+        />
+      </div>
+    </>
   );
 
   /* const handleClick = (counter: number) => {
