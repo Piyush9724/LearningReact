@@ -2,3 +2,20 @@
     list-style: none;
     padding: 0;
 }
+
+listItemContainer {
+    display: flex;
+    align-items: center; /* Align items vertically centered */
+    margin: 5px 0; /* Add margin between list items */
+}
+
+.listItem {
+    padding: 5px;
+    background: none; /* Default background */
+    cursor: pointer; /* Change cursor to pointer for better UX */
+    flex: 1; /* Allow ListItem to take available space */
+}
+
+.listItem.active {
+    background: pink; /* Background for active item */
+}
