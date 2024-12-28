@@ -11,7 +11,7 @@ const List = styled.ul`
 `;
 
 interface ListItemProps {
-  active: boolean;
+  isActive: boolean;
 }
 
 const ListItemContainer = styled.div`
@@ -22,7 +22,7 @@ const ListItemContainer = styled.div`
 
 const ListItem = styled.li<ListItemProps>`
   padding: 5px 0;
-  background: ${(props) => (props.active ? "pink" : "none")};
+  background: ${(props) => (props.isActive ? "pink" : "none")};
   cursor: pointer;
   flex: 1;
   margin-left: 5px;
@@ -91,7 +91,7 @@ function ListGroup({ items, headings, onSelectItem }: ListGroupProps) {
             <ListItemContainer key={item}>
               <Like />
               <ListItem
-                active={index === selectedIndex}
+                isActive={index === selectedIndex}
                 //className="list-group-item"
                 className={
                   selectedIndex == index

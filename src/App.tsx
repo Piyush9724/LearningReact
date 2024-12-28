@@ -5,6 +5,8 @@ import { useState } from "react";
 import { NavBar } from "./components/NavBar";
 import { Cart } from "./components/Cart";
 import { ExpandableText } from "./components/ExpandableText";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import FormComponent from "./components/Form/Form";
 
 function App() {
   //initialize props to be sent to the component
@@ -42,6 +44,7 @@ function App() {
         nascetur ridiculus mus. Integer posuere erat a ante venenatis dapibus posuere velit aliquet."
         />
       </div>
+      <FormComponent />
     </>
   );
 

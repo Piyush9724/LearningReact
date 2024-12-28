@@ -1,0 +1,11 @@
+.glass-box {
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+    backdrop-filter: blur(10px); /* Blur effect */
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Light border */
+}
+
+.form-width {
+    max-width: 400px; /* Set your desired width */
+    margin: auto; /* Center the form */
+    margin-bottom: 20px;;
+}
